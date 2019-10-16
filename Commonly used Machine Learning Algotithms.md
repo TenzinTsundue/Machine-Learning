@@ -45,7 +45,7 @@ It is use to estimate real values (cost of houses, number of calls, total sales 
 - b: Intercept
   
 ![image](https://www.analyticsvidhya.com/wp-content/uploads/2015/08/Linear_Regression.png)
-<img src= "https://www.analyticsvidhya.com/wp-content/uploads/2015/08/Linear_Regression.png">
+
 Linear Regression is mainly of two types: Simple Linear Regression and Multiple Linear Regression.
 - Simple LR: Characterized by one independent variable.
 - Multiple LR: Characterized by multiple independent variables.
