@@ -184,3 +184,95 @@ predicted= predict(fit,x_test)
 
 ## 6. kNN (k- Nearest Neighbors)
 
+It can be use for both classification and regression problems. But mostly used in classification problem. K nearest neighbors is a simple algorithms that stores all available cases and classifies new cases by a majority vote of its k neighbors. The case being assigned to the class is most common amongst its K nearast neighbors measured by a distance function.
+
+This funcion can ve Euclidean, Manhattan, Minkowski and Hamming distance.
+
+![image](https://www.analyticsvidhya.com/wp-content/uploads/2015/08/KNN.png)
+
+**Python Code**
+
+**R Code**
+
+```
+library(knn)
+x <- cbind(x_train,y_train)
+
+# Fitting model
+fit <-knn(y_train ~ ., data = x,k=5)
+summary(fit)
+
+#Predict Output 
+predicted= predict(fit,x_test)
+```
+
+## 7. K-means
+
+It is a type of unsupervised algorithm which solves the clustering problem. Its procedure follows a simple and easy way to classify a given data set through a certain number of clusters (assume k clusters). Data points inside a cluster are homogeneous and hetrogeneous to peer groups.
+
+**How K-means forms cluster**
+
+1. K-means picks k number of points for each cluster known as centroids.
+2. Each data point forms a cluster with the closest centroids i.e. k clusters.  
+3. Find the centroid of each cluster based on existing custer members. Here we have new centroids.
+4. As we have new centroids, repeat step 2 and 3. Find the closest distance for each data point from new centroids and get associated with new k-clusters. Repeat this process until covergence occurs i.e. centroids does not change.
+
+**How to determine value of K**
+
+In K-means, we have clusters and each cluster has its own centroid. Sum of square of difference between centroid and the data points within a cluster constitutes within sum of square value for that cluster. Also, when the sum of square values for all the clusters are added, it becomes total within sum of square value for the cluster solution.
+
+We know that as the number of cluster increases, this value keeps on decreasing but if you plot the result you may see that the sum of squared distance decreases sharply up to some value of k, and then much more slowly after that. Here, we can find the optimum number of cluster.
+
+![image](https://www.analyticsvidhya.com/wp-content/uploads/2015/08/Kmenas.png)
+
+**Python Code**
+
+**R Code**
+
+```
+library(cluster)
+fit <- kmeans(X, 3) # 5 cluster solution
+```
+
+## 8. Random Forest
+
+Random Forest is a treadmark term for an ensenble of decision trees. In Random Forest, we've collection of decision trees (so knon as "Forest"). To classify a new object based on attributes, each tree gives a classification and we say the tree "votes" for the class. The forest chooses the classification having the most votes (over all the trees in the forest).
+
+**Python Code**
+
+**R Code**
+
+```
+library(randomForest)
+x <- cbind(x_train,y_train)
+
+# Fitting model
+fit <- randomForest(Species ~ ., x,ntree=500)
+summary(fit)
+
+#Predict Output 
+predicted= predict(fit,x_test)
+```
+## 9. Dimensionality Reduction Algorithms
+
+In the last 4-5 years, there has been an exponential increase in data capturing at every possible stages. Corporates/ Government Agencies/ Research organisations are not only coming with new sources but also they are capturing data in great detail.
+
+For example: E-commerce companies are capturing more details about customer like their demographics, web crawling history, what they like or dislike, purchase history, feedback and many others to give them personalized attention more than your nearest grocery shopkeeper.
+
+As a data scientist, the data we are offered also consist of many features, this sounds good for building good robust model but there is a challenge. How’d you identify highly significant variable(s) out 1000 or 2000? In such cases, dimensionality reduction algorithm helps us along with various other algorithms like Decision Tree, Random Forest, PCA, Factor Analysis, Identify based on correlation matrix, missing value ratio and others.
+
+**Python Code**
+
+**R Code**
+
+```
+library(stats)
+pca <- princomp(train, cor = TRUE)
+train_reduced  <- predict(pca,train)
+test_reduced  <- predict(pca,test)
+```
+
+## 10. Gradient Boosting Algorithms
+
+### 10.1. GBM
+
